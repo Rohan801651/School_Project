@@ -2,13 +2,12 @@ package School;
 
 import java.util.Scanner;
 
-import ___.teacherClass.teacher;
-
 public class TeachersPortal {
     public static void main(String[] args) {
         final String pass = "teachers456";
 
         Scanner sc = new Scanner(System.in);
+        AttendenceTracking attendenceTracking = new AttendenceTracking();
         School school = new School();
 
         System.out.println("Welcome to Teachers Portal");
@@ -24,14 +23,26 @@ public class TeachersPortal {
                 System.out.println("1 to Mark Attendence");
                 
 
-                System.out.print("Enter Your choice");
+                System.out.print("Enter Your choice: ");
                 int opt = sc.nextInt();
 
                 switch (opt) {
                     case 1: {
-                        System.out.println("Teachers Attendence");
-                        
+                        System.out.println("\nTeachers Attendence\n");
+                        sc.nextLine();
+                        System.out.print("Enter your Name: ");
+                        String name = sc.nextLine();
+                        System.out.print("Enter ID: ");
+                        String id = sc.next();
+                        System.out.println("Enter Status [p/a]");
+                        String status = sc.next();
+                        if (status.equalsIgnoreCase("p") || status.equalsIgnoreCase("a")) {
+                            attendenceTracking.attendenceOfTeachers(name, id, status);
+                        } else {
+
+                        }
                         break;
+
                     }
 
                     default:
